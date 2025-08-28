@@ -1,5 +1,5 @@
 {
-  "name": "ducharme/partial-playground-plugin",
+  "name": "ducharme/partialplayground-plugin",
   "type": "october-plugin",
   "description": "Backend interface to test and preview partials with dynamic parameters",
   "homepage": "https://github.com/PhilippeBlanko/oc-partial-playground-plugin",
