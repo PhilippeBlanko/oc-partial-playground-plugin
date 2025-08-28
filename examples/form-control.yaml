@@ -1,0 +1,69 @@
+fields:
+
+  label:
+    label: "Label"
+    type: text
+    default: "Field"
+    comment: "Text displayed as the field label"
+    placeholder: "Ex: Name"
+
+  type:
+    label: "Type"
+    type: dropdown
+    default: text
+    options:
+      text: Text
+      email: Email
+      password: Password
+      number: Number
+      date: Date
+    comment: "HTML input type"
+
+  placeholder:
+    label: "Placeholder"
+    type: text
+    default: "Enter text"
+    comment: "Text displayed inside the field when empty"
+    placeholder: "Ex: Enter your name"
+
+  size:
+    label: "Size"
+    type: dropdown
+    default: ''
+    options:
+      '': Normal
+      sm: Small
+      lg: Large
+    comment: "Field size"
+
+  disabled:
+    label: "Disabled"
+    type: switch
+    default: 0
+    comment: "Disable the field"
+
+  readonly:
+    label: "Read-only"
+    type: switch
+    default: 0
+    comment: "Make the field read-only"
+
+  value:
+    label: "Value"
+    type: text
+    default: ""
+    comment: "Initial value of the field"
+
+  required:
+    label: "Required"
+    type: switch
+    default: 0
+    comment: "Make the field mandatory"
+
+  is_floating:
+    label: "Floating Label"
+    type: switch
+    default: 0
+    comment: "Use a floating label"
+
+preview_layout: "full"

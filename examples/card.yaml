@@ -1,0 +1,84 @@
+fields:
+
+  title:
+    label: "Card Title"
+    type: text
+    default: "Card Title"
+    comment: "Title displayed at the top of the card"
+
+  text:
+    label: "Content"
+    type: textarea
+    default: "Card content..."
+    comment: "Main text or description of the card"
+
+  image:
+    label: "Image"
+    type: mediafinder
+    mode: image
+    default: ""
+    comment: "Image displayed at the top of the card (optional)"
+
+  footer:
+    label: "Footer"
+    type: text
+    default: ""
+    comment: "Card footer text (optional)"
+
+  show_button:
+    label: "Show Button"
+    type: switch
+    default: 0
+    comment: "Display a button at the bottom of the card"
+
+  button_text:
+    label: "Button Text"
+    type: text
+    default: "Learn More"
+    comment: "Text displayed on the button"
+    trigger:
+      action: show
+      field: show_button
+      condition: checked
+
+  button_href:
+    label: "Button URL"
+    type: text
+    default: "#"
+    comment: "URL the button links to"
+    trigger:
+      action: show
+      field: show_button
+      condition: checked
+
+  button_style:
+    label: "Button Style"
+    type: dropdown
+    default: primary
+    options:
+      primary: Primary
+      secondary: Secondary
+      success: Success
+      danger: Danger
+      warning: Warning
+      info: Info
+      light: Light
+      dark: Dark
+      link: Link
+    comment: "Bootstrap button color and style"
+    trigger:
+      action: show
+      field: show_button
+      condition: checked
+
+  button_outline:
+    label: "Button Outline"
+    type: switch
+    default: 0
+    comment: "Display the button in outline style"
+    trigger:
+      action: show
+      field: show_button
+      condition: checked
+
+preview_layout: "full"

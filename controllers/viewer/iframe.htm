@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="<?= App::getLocale() ?>" data-color-mode="<?= $previewColorMode ?>">
+<head>
+    <meta charset="UTF-8">
+    <title><?= __('ducharme.partialplayground::lang.iframe.title') ?></title>
+
+    <!-- Style principal de l'iframe -->
+    <link rel="stylesheet" href="/plugins/ducharme/partialplayground/assets/css/iframe.css">
+
+    <!-- Style global injecté dans la preview -->
+    <?php if ($previewCssPath): ?>
+        <link rel="stylesheet" href="<?= $previewCssPath ?>">
+    <?php endif ?>
+
+    <!-- Style spécifique au partial sélectionné -->
+    <?php if ($partialCssPath): ?>
+        <link rel="stylesheet" href="<?= $partialCssPath ?>">
+    <?php endif ?>
+</head>
+<body>
+    <!-- Barre de contrôle du thème -->
+    <div class="pp-theme-toolbar">
+        <div id="radio-toolbar-theme" class="pp-radio-toolbar">
+            <label class="pp-radio-toolbar-label" for="theme-light" title="<?= __('ducharme.partialplayground::lang.iframe.light_mode_title') ?>">
+                <input class="pp-radio-toolbar-input" type="radio" id="theme-light" name="theme" value="light" <?= $previewColorMode === 'light' ? 'checked' : '' ?>>
+                <svg class="pp-radio-toolbar-svg" viewBox="0 0 24 24" fill="none">
+                    <path d="M11.4749 4.61153V2.5M16.7531 6.7218L18.23 5.24487M18.8633 12H20.9749M16.7531 17.2782L18.23 18.7551M11.4749 19.3885V21.5M6.19667 17.2782L4.71973 18.7551M5.14153 12H3.03M6.19667 6.7218L4.71973 5.24487M11.4749 15.1667C12.3147 15.1667 13.1202 14.833 13.714 14.2392C14.3079 13.6453 14.6415 12.8399 14.6415 12C14.6415 11.1601 14.3079 10.3547 13.714 9.76083C13.1202 9.16696 12.3147 8.83333 11.4749 8.83333C10.635 8.83333 9.82956 9.16696 9.2357 9.76083C8.64183 10.3547 8.3082 11.1601 8.3082 12C8.3082 12.8399 8.64183 13.6453 9.2357 14.2392C9.82956 14.833 10.635 15.1667 11.4749 15.1667Z" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke" />
+                </svg>
+            </label>
+            <label class="pp-radio-toolbar-label" for="theme-dark" title="<?= __('ducharme.partialplayground::lang.iframe.dark_mode_title') ?>">
+                <input class="pp-radio-toolbar-input" type="radio" id="theme-dark" name="theme" value="dark" <?= $previewColorMode === 'dark' ? 'checked' : '' ?>>
+                <svg class="pp-radio-toolbar-svg" viewBox="0 0 24 24" fill="none">
+                    <path d="M12.3469 3.0084H12.7405C11.4556 4.20204 10.6295 5.80824 10.4061 7.54776C10.1826 9.28728 10.5759 11.0501 11.5174 12.5297C12.459 14.0094 13.8893 15.1123 15.5597 15.6467C17.2301 16.1811 19.035 16.1132 20.6605 15.4548C20.0351 16.9592 19.0131 18.2656 17.7035 19.2346C16.3939 20.2037 14.8458 20.7992 13.2243 20.9574C11.6029 21.1157 9.96883 20.8309 8.49654 20.1333C7.02425 19.4358 5.76892 18.3517 4.86443 16.9966C3.95995 15.6416 3.44023 14.0665 3.36072 12.4392C3.28122 10.812 3.64489 9.1937 4.41297 7.75694C5.18105 6.32018 6.32471 5.11886 7.72198 4.2811C9.11925 3.44334 10.7177 3.00056 12.3469 3V3.0084Z" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke" />
+                </svg>
+            </label>
+        </div>
+    </div>
+
+    <!-- Barre de contrôle pan & zoom -->
+    <div class="pp-nav-toolbar">
+        <div class="pp-pan-toolbar">
+            <div id="radio-toolbar-pan" class="pp-radio-toolbar">
+                <label class="pp-radio-toolbar-label" for="pan-cursor" title="<?= __('ducharme.partialplayground::lang.iframe.selection_tool_title') ?>">
+                    <input class="pp-radio-toolbar-input" type="radio" id="pan-cursor" name="pan" value="cursor" checked>
+                    <svg class="pp-radio-toolbar-svg" viewBox="0 0 24 24" fill="none">
+                        <path d="M5.4 5.39999L9.93055 18.2651C9.96318 18.333 10.0144 18.3904 10.0784 18.4303C10.1423 18.4703 10.2162 18.4913 10.2916 18.4909C10.3672 18.4914 10.4413 18.4704 10.5054 18.4305C10.5695 18.3905 10.621 18.3331 10.6538 18.2651L13.0364 13.0364L18.2585 10.8611C18.3272 10.8311 18.3857 10.7819 18.427 10.7193C18.4682 10.6568 18.4904 10.5836 18.4909 10.5087C18.4904 10.4338 18.4682 10.3606 18.427 10.2981C18.3857 10.2356 18.3272 10.1863 18.2585 10.1564L5.4 5.39999Z" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke" />
+                        <path d="M13.5818 13.5818L18.4909 18.4909" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke" />
+                    </svg>
+                </label>
+                <label class="pp-radio-toolbar-label" for="pan-grab" title="<?= __('ducharme.partialplayground::lang.iframe.hand_tool_title') ?>">
+                    <input class="pp-radio-toolbar-input" type="radio" id="pan-grab" name="pan" value="grab">
+                    <svg class="pp-radio-toolbar-svg" viewBox="0 0 24 24" fill="none">
+                        <path d="M8.2287 13V5.5C8.2287 5.10218 8.38673 4.72064 8.66804 4.43934C8.94934 4.15804 9.33087 4 9.7287 4C10.1265 4 10.5081 4.15804 10.7894 4.43934C11.0707 4.72064 11.2287 5.10218 11.2287 5.5V12" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke" />
+                        <path d="M11.2287 5.5V3.5C11.2287 3.30302 11.2675 3.10796 11.3429 2.92597C11.4183 2.74399 11.5288 2.57863 11.668 2.43934C11.8073 2.30005 11.9727 2.18956 12.1547 2.11418C12.3367 2.0388 12.5317 2 12.7287 2C12.9257 2 13.1207 2.0388 13.3027 2.11418C13.4847 2.18956 13.6501 2.30005 13.7894 2.43934C13.9286 2.57863 14.0391 2.74399 14.1145 2.92597C14.1899 3.10796 14.2287 3.30302 14.2287 3.5V12" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke" />
+                        <path d="M14.2287 5.5C14.2287 5.10218 14.3867 4.72064 14.668 4.43934C14.9493 4.15804 15.3309 4 15.7287 4C16.1265 4 16.5081 4.15804 16.7894 4.43934C17.0707 4.72064 17.2287 5.10218 17.2287 5.5V12" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke" />
+                        <path d="M17.2287 7.5C17.2287 7.10218 17.3867 6.72064 17.668 6.43934C17.9493 6.15804 18.3309 6 18.7287 6C19.1265 6 19.5081 6.15804 19.7894 6.43934C20.0707 6.72064 20.2287 7.10218 20.2287 7.5V16C20.2287 17.5913 19.5966 19.1174 18.4713 20.2426C17.3461 21.3679 15.82 22 14.2287 22H12.2287H12.4367C11.443 22.0002 10.4649 21.7535 9.59008 21.2823C8.71528 20.811 7.97121 20.1299 7.4247 19.3C7.35911 19.2002 7.29378 19.1002 7.2287 19C6.9167 18.521 5.8217 16.612 3.9427 13.272C3.75115 12.9315 3.69998 12.5298 3.80008 12.1522C3.90018 11.7745 4.14365 11.4509 4.4787 11.25C4.83558 11.0359 5.25377 10.9471 5.66686 10.9978C6.07995 11.0486 6.46424 11.2359 6.7587 11.53L8.2287 13" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke" />
+                    </svg>
+                </label>
+            </div>
+        </div>
+        <div class="pp-divider-toolbar"></div>
+        <div class="pp-zoom-toolbar">
+            <button id="button-toolbar-zoom-out" class="pp-button-toolbar" title="<?= __('ducharme.partialplayground::lang.iframe.zoom_out_title') ?>">
+                <svg class="pp-button-toolbar-svg" viewBox="0 0 24 24" fill="none">
+                    <path d="M6 12H18" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke" />
+                </svg>
+            </button>
+            <div id="text-toolbar-zoom" class="pp-text-toolbar">100%</div>
+            <button id="button-toolbar-zoom-in" class="pp-button-toolbar" title="<?= __('ducharme.partialplayground::lang.iframe.zoom_in_title') ?>">
+                <svg class="pp-button-toolbar-svg" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 5.0004V18.9996M5.0004 12H18.9996" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke" />
+                </svg>
+            </button>
+        </div>
+        <div class="pp-divider-toolbar"></div>
+        <button id="button-toolbar-zoom-fit" class="pp-button-toolbar" title="<?= __('ducharme.partialplayground::lang.iframe.zoom_fit_title') ?>">
+            <svg class="pp-button-toolbar-svg" viewBox="0 0 24 24" fill="none">
+                <rect x="6" y="7" width="12" height="10" rx="2" vector-effect="non-scaling-stroke" />
+                <path d="M16.75 20.5H17.5C19.7091 20.5 21.5 18.7091 21.5 16.5V16.25M7.25 20.5H6.5C4.29086 20.5 2.5 18.7091 2.5 16.5V16.25M2.5 7.75V7.5C2.5 5.29086 4.29086 3.5 6.5 3.5H7.25M21.5 7.75V7.5C21.5 5.29086 19.7091 3.5 17.5 3.5H16.75" stroke-linecap="round" vector-effect="non-scaling-stroke" />
+            </svg>
+        </button>
+    </div>
+
+    <!-- Conteneur principal -->
+    <main id="iframe-container" class="pp-iframe-container">
+        <!-- Zone de contenu déplaçable et zoomable -->
+        <div id="content-wrapper" class="pp-content-wrapper pp-content-wrapper--layout-<?= $previewLayout ?>">
+            <!-- Contenu HTML généré dynamiquement à partir du partial -->
+            <?= $partialContentHtml ?>
+        </div>
+    </main>
+
+    <!-- Script variables globales -->
+    <script>
+      window.previewColorMode = '<?= $previewColorMode ?>';
+      window.previewThemeConfig = <?= json_encode($previewThemeConfig) ?>;
+    </script>
+
+    <!-- Script principal de l'iframe -->
+    <script src="/plugins/ducharme/partialplayground/assets/js/iframe.js"></script>
+
+    <!-- Script global injecté dans la preview -->
+    <?php if ($previewJsPath): ?>
+        <script src="<?= $previewJsPath ?>" data-user-script></script>
+    <?php endif ?>
+
+    <!-- Script spécifique au partial sélectionné -->
+    <?php if ($partialJsPath): ?>
+        <script src="<?= $partialJsPath ?>" data-user-script></script>
+    <?php endif ?>
+</body>
+</html>

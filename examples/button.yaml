@@ -1,0 +1,68 @@
+fields:
+
+  text:
+    label: "Button Text"
+    type: text
+    default: "Click me"
+    comment: "Text displayed inside the button"
+    placeholder: "Ex: Submit"
+    required: true
+
+  type:
+    label: "Button Type"
+    type: dropdown
+    default: button
+    options:
+      button: Button
+      submit: Submit
+      reset: Reset
+      link: Link
+    comment: "Defines the button behavior"
+
+  href:
+    label: "Link URL"
+    type: text
+    default: "#"
+    comment: "The URL the button points to if type is 'Link'"
+    trigger:
+      action: show
+      field: type
+      condition: value[link]
+
+  style:
+    label: "Style"
+    type: dropdown
+    default: primary
+    options:
+      primary: Primary
+      secondary: Secondary
+      success: Success
+      danger: Danger
+      warning: Warning
+      info: Info
+      light: Light
+      dark: Dark
+      link: Link
+    comment: "Button color and style"
+
+  outline:
+    label: "Outline Style"
+    type: switch
+    default: 0
+    comment: "Display only the button border"
+
+  size:
+    label: "Size"
+    type: dropdown
+    default: ''
+    options:
+      '': Normal
+      sm: Small
+      lg: Large
+    comment: "Button size"
+
+  disabled:
+    label: "Disable Button"
+    type: switch
+    default: 0
+    comment: "The button will be greyed out and not clickable"

@@ -1,0 +1,230 @@
+html {
+    color-scheme: light;
+
+    /* Source : modules/backend/assets/less/core/brand.less */
+    --oc-form-control-bg: white;
+    --oc-toolbar-color: #536061;
+    --oc-toolbar-bg: white;
+    --oc-toolbar-hover-color: black;
+    --oc-toolbar-hover-bg: rgba(215, 225, 234, 0.7);
+    --oc-callout-danger-bg: #fadad7;
+    --bs-body-color: #333333;
+
+    --pp-background-color: var(--oc-form-control-bg);
+    --pp-toolbar-box-shadow: 0 0 1px rgba(0, 0, 0, 0.17), 0 0 3px rgba(0, 0, 0, 0.08), 0 7px 14px rgba(0, 0, 0, 0.05);
+    --pp-toolbar-background-color: var(--oc-toolbar-bg);
+    --pp-element-toolbar-size: 36px;
+    --pp-element-toolbar-border-radius: 6px;
+    --pp-element-toolbar-background-color: var(--oc-toolbar-bg);
+    --pp-element-toolbar-background-color-hover: var(--oc-toolbar-hover-bg);
+    --pp-element-toolbar-background-color-active: var(--oc-toolbar-hover-bg);
+    --pp-element-toolbar-color: var(--oc-toolbar-color);
+    --pp-element-toolbar-color-hover: var(--oc-toolbar-hover-color);
+    --pp-element-toolbar-color-active: var(--oc-toolbar-hover-color);
+    --pp-element-toolbar-svg-size: calc(var(--pp-element-toolbar-size) / 2);
+    --pp-element-toolbar-svg--stroke-width: 1.25px;
+    --pp-callout-danger-background-color: var(--oc-callout-danger-bg);
+}
+
+html[data-color-mode="dark"] {
+    color-scheme: dark;
+
+    --oc-form-control-bg: #1e2227;
+    --oc-toolbar-color: #adb5bd;
+    --oc-toolbar-bg: #1e2227;
+    --oc-toolbar-hover-color: white;
+    --oc-toolbar-hover-bg: rgba(215, 225, 234, 0.2);
+    --oc-callout-danger-bg: #330c06;
+    --bs-body-color: #adb5bd;
+
+    --pp-toolbar-box-shadow: 0 0 1px rgba(255, 255, 255, 0.17), 0 0 3px rgba(255, 255, 255, 0.08), 0 7px 14px rgba(255, 255, 255, 0.05);
+}
+
+/* Normalize */
+html {
+    background-color: var(--pp-background-color);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Theme toolbar & nav toolbar */
+.pp-theme-toolbar,
+.pp-nav-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 0 4px;
+    padding: 4px;
+    box-shadow: var(--pp-toolbar-box-shadow);
+    background-color: var(--pp-toolbar-background-color);
+    border-radius: calc(var(--pp-element-toolbar-border-radius) + 4px);
+    z-index: 10000;
+}
+
+.pp-theme-toolbar {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}
+
+.pp-nav-toolbar {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Pan toolbar & zoom toolbar */
+.pp-pan-toolbar,
+.pp-zoom-toolbar {
+    display: flex;
+    align-items: center;
+}
+
+.pp-pan-toolbar {
+    gap: 0 4px;
+}
+
+.pp-zoom-toolbar {
+    gap: 0 6px;
+}
+
+/* Radio toolbar */
+.pp-radio-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 0 4px;
+}
+
+.pp-radio-toolbar-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--pp-element-toolbar-size);
+    height: var(--pp-element-toolbar-size);
+    background-color: var(--pp-element-toolbar-background-color);
+    border-radius: var(--pp-element-toolbar-border-radius);
+    cursor: pointer;
+    transition: background-color 300ms;
+}
+
+.pp-radio-toolbar-label:hover {
+    background-color: var(--pp-element-toolbar-background-color-hover);
+}
+
+.pp-radio-toolbar-label:has(.pp-radio-toolbar-input:checked) {
+    background-color: var(--pp-element-toolbar-background-color-active);
+}
+
+.pp-radio-toolbar-input {
+    display: none;
+}
+
+.pp-radio-toolbar-svg {
+    width: var(--pp-element-toolbar-svg-size);
+    height: var(--pp-element-toolbar-svg-size);
+    stroke: var(--pp-element-toolbar-color);
+    stroke-width: var(--pp-element-toolbar-svg--stroke-width);
+    transition: stroke 300ms;
+}
+
+.pp-radio-toolbar-label:hover .pp-radio-toolbar-svg {
+    stroke: var(--pp-element-toolbar-color-hover);
+}
+
+.pp-radio-toolbar-input:checked ~ .pp-radio-toolbar-svg {
+    stroke: var(--pp-element-toolbar-color-active);
+}
+
+/* Button toolbar */
+.pp-button-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--pp-element-toolbar-size);
+    height: var(--pp-element-toolbar-size);
+    background-color: var(--pp-element-toolbar-background-color);
+    border: none;
+    border-radius: var(--pp-element-toolbar-border-radius);
+    cursor: pointer;
+    transition: background-color 300ms;
+}
+
+.pp-button-toolbar:hover {
+    background-color: var(--pp-element-toolbar-background-color-hover);
+}
+
+.pp-button-toolbar-svg {
+    width: var(--pp-element-toolbar-svg-size);
+    height: var(--pp-element-toolbar-svg-size);
+    stroke: var(--pp-element-toolbar-color);
+    stroke-width: var(--pp-element-toolbar-svg--stroke-width);
+    transition: stroke 300ms;
+}
+
+.pp-button-toolbar:hover .pp-button-toolbar-svg {
+    stroke: var(--pp-element-toolbar-color-hover);
+}
+
+/* Text toolbar */
+.pp-text-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--pp-element-toolbar-size);
+    height: var(--pp-element-toolbar-size);
+    background-color: var(--pp-element-toolbar-background-color);
+    border: none;
+    border-radius: var(--pp-element-toolbar-border-radius);
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--pp-element-toolbar-color);
+}
+
+/* Divider toolbar */
+.pp-divider-toolbar {
+    width: 1px;
+    height: calc(var(--pp-element-toolbar-size) * 0.65);
+    background-color: var(--pp-element-toolbar-color);
+    opacity: 0.2;
+    margin: 0 6px;
+}
+
+/* Iframe container */
+.pp-iframe-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.pp-content-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-origin: 0 0;
+    /* Largeur du viewport moins 40px, utilisée aussi dans JS (calculateZoomFit) */
+    max-width: calc(100vw - 40px);
+}
+
+.pp-content-wrapper--layout-full {
+    width: 100%;
+}
+
+/* Callout danger */
+.pp-callout-danger {
+    padding: 15px 20px;
+    background-color: var(--pp-callout-danger-background-color);
+    border-radius: 4px;
+
+    > p {
+        font-family: sans-serif;
+        font-size: 14px;
+        line-height: 1.4em;
+        color: var(--bs-body-color);
+        margin: 0;
+    }
+}

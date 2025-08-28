@@ -1,0 +1,21 @@
+{
+  "name": "ducharme/partial-playground-plugin",
+  "type": "october-plugin",
+  "description": "Backend interface to test and preview partials with dynamic parameters",
+  "homepage": "https://github.com/votre-utilisateur/partial-playground",
+  "keywords": ["octobercms", "plugin", "partial", "preview", "playground"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Philippe Ducharme",
+      "homepage": "https://github.com/votre-utilisateur",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "composer/installers": "~1.0"
+  },
+  "extra": {
+    "installer-name": "partialplayground"
+  }
+}

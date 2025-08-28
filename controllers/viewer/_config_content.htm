@@ -1,0 +1,15 @@
+<?php if (!empty($formWidget)): ?>
+    <form id="Form-partialForm">
+        <?= $formWidget->render(['useContainer' => false]) ?>
+        <input id="selected-partial" type="hidden" value="<?= e($selectedPartial) ?>" />
+    </form>
+<?php else: ?>
+    <?php if (empty($partialConfig)): ?>
+        <div class="callout callout-warning no-icon">
+            <div class="header">
+                <?php $path = 'themes/' . Config::get('cms.active_theme') . '/partials' . ($partialsFolder ? '/' . e($partialsFolder) : '') . '/' . e($selectedPartial) . '.yaml' ?>
+                <p><?= __('ducharme.partialplayground::lang.index.config_file_not_found_or_poorly_implemented', ['path' => $path ]) ?></p>
+            </div>
+        </div>
+    <?php endif ?>
+<?php endif ?>

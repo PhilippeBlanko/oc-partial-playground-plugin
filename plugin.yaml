@@ -1,0 +1,5 @@
+name: Partial Playground
+description: Backend interface to test and preview partials with dynamic parameters
+author: Philippe Ducharme
+icon: icon-puzzle-piece
+homepage: https://github.com/ton-org/ton-plugin

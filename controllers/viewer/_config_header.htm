@@ -1,0 +1,15 @@
+<h4><?= __('ducharme.partialplayground::lang.index.configuration') ?></h4>
+<?php if (!empty($formWidget)): ?>
+    <div class="buttons">
+        <button class="btn btn-default"
+                title="<?= __('ducharme.partialplayground::lang.index.reset_button_title') ?>"
+                onclick="triggerResetPreview()">
+            <i class="oc-icon-undo"></i>
+        </button>
+        <button class="btn btn-default"
+                title="<?= __('ducharme.partialplayground::lang.index.copy_code_button_title') ?>"
+                onclick="copyPartialCode()">
+            <i class="oc-icon-code"></i>
+        </button>
+    </div>
+<?php endif ?>

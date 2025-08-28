@@ -1,0 +1,60 @@
+<div class="pp-container <?= $menuModeClass ?>">
+    <aside class="pp-sidebar">
+        <div class="pp-sidebar-partial">
+            <div class="pp-partial-header">
+                <h3><?= __('ducharme.partialplayground::lang.index.title') ?></h3>
+                <p class="text-muted"><?= __('ducharme.partialplayground::lang.index.subtitle') ?></p>
+            </div>
+
+            <div class="pp-partial-content">
+                <?php if (!empty($partialsOptionsHtml)): ?>
+                    <div class="form-group">
+                        <label for="partial-select"
+                               class="form-label"><?= __('ducharme.partialplayground::lang.index.partial_select_label') ?></label>
+                        <select id="partial-select"
+                                name="partial"
+                                class="form-control custom-select">
+                            <?= $partialsOptionsHtml ?>
+                        </select>
+                    </div>
+                <?php else: ?>
+                    <div class="callout callout-warning no-icon">
+                        <div class="header">
+                            <?php $path = 'themes/' . Config::get('cms.active_theme') . '/partials' . ($partialsFolder ? '/' . e($partialsFolder) : '') ?>
+                            <p><?= __('ducharme.partialplayground::lang.index.no_partials_found', ['path' => $path ]) ?></p>
+                        </div>
+                    </div>
+                <?php endif ?>
+            </div>
+        </div>
+
+        <?php if (!empty($selectedPartial)): ?>
+            <div class="pp-sidebar-config">
+                <div id="config-header" class="pp-config-header">
+                    <?= $this->makePartial('config_header') ?>
+                </div>
+
+                <div id="config-content" class="pp-config-content">
+                    <?= $this->makePartial('config_content') ?>
+                </div>
+            </div>
+        <?php endif ?>
+    </aside>
+
+    <!-- Zone de prévisualisation -->
+    <?php if (!empty($partialsOptionsHtml)): ?>
+        <section class="pp-preview">
+            <div id="preview-header" class="pp-preview-header">
+                <?= $this->makePartial('preview_header') ?>
+            </div>
+
+            <div id="preview-content" class="pp-preview-content">
+                <?= $this->makePartial('preview_content') ?>
+            </div>
+        </section>
+    <?php endif ?>
+</div>
+
+<script>
+  window.translations = <?= json_encode(Lang::get('ducharme.partialplayground::lang'), JSON_UNESCAPED_UNICODE) ?>;
+</script>

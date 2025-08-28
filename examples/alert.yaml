@@ -1,0 +1,30 @@
+fields:
+
+  type:
+    label: "Alert Type"
+    type: dropdown
+    default: info
+    options:
+      primary: Primary
+      secondary: Secondary
+      success: Success
+      danger: Danger
+      warning: Warning
+      info: Info
+      light: Light
+      dark: Dark
+    comment: "Defines the style of the alert"
+
+  message:
+    label: "Message"
+    type: textarea
+    default: "This is an alert."
+    comment: "The text to display inside the alert"
+
+  dismissible:
+    label: "Show close button"
+    type: switch
+    default: 1
+    comment: "Allows the user to close the alert"
+
+preview_layout: "full"

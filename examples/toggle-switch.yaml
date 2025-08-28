@@ -1,0 +1,21 @@
+fields:
+
+  note:
+    type: "hint"
+    comment: "This partial uses its own CSS and JS files as defined by the <code>preview_css_file</code> and <code>preview_js_file</code> keys in the partial's configuration."
+    commentHtml: true
+
+  label:
+    label: "Toggle Label"
+    type: text
+    default: "OFF"
+    comment: "Text initially displayed on the button"
+
+  active_label:
+    label: "Active Label"
+    type: text
+    default: "ON"
+    comment: "Text displayed when the toggle is activated"
+
+preview_css_file: "assets/css/toggle-switch.css"
+preview_js_file: "assets/js/toggle-switch.js"

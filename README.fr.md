@@ -1,27 +1,27 @@
-# Partial Playground Plugin for October CMS
+# Plugin Partial Playground pour October CMS
 
-**Partial Playground** is a backend plugin for October CMS that allows you to **test and preview your partials with dynamic parameters** directly from the administration interface. It helps streamline the development and fine-tuning of reusable components.
+**Partial Playground** est un plugin backend pour October CMS qui permet de **tester et prévisualiser vos partials avec des paramètres dynamiques**, directement depuis l’interface d’administration. Il facilite le développement et la mise au point de composants réutilisables.
 
-## Main Features
+## Fonctionnalités principales
 
-- **Real-time preview**: instantly see the effect of changes on your partials.
-- **CSS and JS file management**: easily include and test styles and scripts specific to each partial.
-- **Copy generated code**: quickly get the code ready to be used in your pages or templates.
-- **Intuitive interface**: modify dynamic parameters and observe the final rendering instantly.
+- **Prévisualisation en temps réel** : visualisez immédiatement l’effet des modifications sur vos partials.
+- **Gestion des fichiers CSS et JS associés** : incluez et testez facilement les styles et scripts spécifiques à chaque partial.
+- **Copie du code généré** : récupérez rapidement le code prêt à être intégré dans vos pages ou templates.
+- **Interface intuitive** : modifiez les paramètres dynamiques et observez instantanément le rendu final.
 
 ## Installation
 
-You can install this plugin from the **October CMS Marketplace** or using **Composer**.
+Vous pouvez installer ce plugin depuis le **Marketplace October CMS** ou en utilisant **Composer**.
 
 ### Via Marketplace
 
-1. Go to the October CMS backend: **Settings > System > Plugins**.
-2. Search for the **Partial Playground** plugin.
-3. Click on the plugin to install it.
+1. Allez dans le backend d’October CMS : **Settings > System > Plugins**.
+2. Recherchez le plugin **Partial Playground**.
+3. Cliquez sur le plugin pour l’installer.
 
 ### Via Composer
 
-Open your terminal, navigate to the root of your October CMS project, and run:
+Ouvrez votre terminal, placez-vous à la racine de votre projet October CMS et exécutez la commande suivante :
 
 ```bash
 php artisan plugin:install Ducharme.PartialPlayground
@@ -29,42 +29,42 @@ php artisan plugin:install Ducharme.PartialPlayground
 
 ## Configuration
 
-The **Partial Playground** plugin offers two levels of configuration: global and specific to each partial.
+Le plugin **Partial Playground** propose deux niveaux de configuration : globale et spécifique à chaque partial.
 
-### 1. Global Plugin Configuration
+### 1. Configuration globale du plugin
 
-The global configuration of **Partial Playground** can be customized in your project.
-Copy the `plugins/ducharme/partialplayground/config/config.php` file to the `config/ducharme/partialplayground.php` folder and modify the values as needed.
+La configuration globale de **Partial Playground** peut être personnalisée dans votre projet.  
+Copiez le fichier `plugins/ducharme/partialplayground/config/config.php` dans le dossier `config/ducharme/partialplayground` et modifiez les valeurs selon vos besoins.
 
-- **`partials_folder`** : folder where your partials are stored, relative to the theme’s `partials/` directory.
-- **`preview_css_file`** : global CSS file applied to all previews.
-- **`preview_js_file`** : global JS file applied to all previews.
-- **`preview_layout`** : default layout for previews (`content` or `full`).
-- **`preview_default_theme`** : default theme (`light`, `dark`, or `auto`).
-- **`preview_theme`** : configuration for applying the theme (`target`, `type`, `name`, `value`).
+- **`partials_folder`** : dossier où sont stockés vos partials, relatif à `partials/` du thème actif.
+- **`preview_css_file`** : fichier CSS global appliqué à toutes les prévisualisations.
+- **`preview_js_file`** : fichier JS global appliqué à toutes les prévisualisations.
+- **`preview_layout`** : layout par défaut de la prévisualisation (`content` ou `full`).
+- **`preview_default_theme`** : thème par défaut (`light`, `dark`, ou `auto`).
+- **`preview_theme`** : configuration pour appliquer le thème (`target`, `type`, `name`, `value`).
 
-### 2. Partial-Specific Configuration
+### 2. Configuration spécifique à chaque partial
 
-Each partial must have **two files at the same level in the partial’s folder**:
+Pour chaque partial, deux fichiers doivent être présents **au même niveau dans le dossier du partial** :
 
-#### a) File `.htm`
+#### a) Fichier `.htm`
 
-- Contains the HTML code of your partial.
-- Must be **well-isolated**, like a true reusable component.
-- Includes only the markup required for the partial, without external dependencies unmanaged by the plugin.
+- Contient le code HTML de votre partial.
+- Doit être **bien isolé**, comme un vrai composant réutilisable.
+- Inclut uniquement le markup nécessaire au partial, sans dépendances externes non gérées par le plugin.
 
-#### b) File `.yaml`
+#### b) Fichier `.yaml`
 
-- Defines the **dynamic fields** and configurable settings for the partial.
-- Allows specifying a **CSS and JS file** specific to the partial, in addition to the globally configured ones:
-  - **`preview_css_file`**: relative path to a CSS file specific to the partial (optional).
-  - **`preview_js_file`**: relative path to a JS file specific to the partial (optional).
-- Allows defining the **preview layout** specific to the partial (`content` or `full`) via:
-  - **`preview_layout`**: overrides the global layout if needed.
+- Définit les **champs dynamiques** et les paramètres configurables du partial.
+- Permet de définir un **fichier CSS et JS** spécifique au partial, en plus de ceux configurés globalement :
+  - **`preview_css_file`** : chemin relatif vers un fichier CSS spécifique au partial (optionnel). 
+  - **`preview_js_file`** : chemin relatif vers un fichier JS spécifique au partial (optionnel). 
+- Permet de définir le **layout de prévisualisation** spécifique au partial (`content` ou `full`) via :
+  - **`preview_layout`** : remplace le layout global si nécessaire.
 
-### 3. Available Field Types for `.yaml`
+### 3. Types de champs disponibles pour le fichier `.yaml`
 
-Here are all the field types you can use in your YAML files to configure a partial:
+Voici tous les types de champs que vous pouvez utiliser dans vos fichiers YAML pour configurer un partial :
 
 - [`Text`](https://docs.octobercms.com/3.x/element/form/field-text.html)
 - [`Number`](https://docs.octobercms.com/3.x/element/form/field-number.html)
@@ -80,9 +80,9 @@ Here are all the field types you can use in your YAML files to configure a parti
 - [`Media Finder`](https://docs.octobercms.com/3.x/element/form/widget-mediafinder.html)
 - [`Hint`](https://docs.octobercms.com/3.x/element/form/ui-hint.html)
 
-For more details about each field type and available options, see the official documentation: [Form Fields – October CMS](https://docs.octobercms.com/3.x/element/form-fields.html)
+Pour plus de détails sur chaque type de champ et les options possibles, consultez la documentation officielle : [Form Fields – October CMS](https://docs.octobercms.com/3.x/element/form-fields.html)
 
-## Examples
+## Exemples
 
 ### Alert
 
@@ -285,24 +285,25 @@ preview_css_file: "assets/css/toggle-switch.css"
 preview_js_file: "assets/js/toggle-switch.js"
 ```
 
-More examples are available in the plugin's [examples](https://github.com/your-user/partial-playground/examples) folder.
+D’autres exemples sont disponibles dans le dossier [examples](https://github.com/votre-utilisateur/partial-playground/examples) du plugin.
 
-## Contributing
+## Contribuer
 
-Contributions are welcome!
+Les contributions sont les bienvenues !
 
-- Fork the project and create a branch for your improvements or fixes.
-- Submit a [Pull Request](https://github.com/votre-utilisateur/partial-playground/pulls) with a clear description of your changes.
-- Report bugs or issues via [Issues](https://github.com/votre-utilisateur/partial-playground/issues).
+- Forkez le projet et créez votre branche pour les améliorations ou corrections.
+- Soumettez une [Pull Request](https://github.com/votre-utilisateur/partial-playground/pulls) avec une description claire des changements.
+- Signalez les bugs ou problèmes via les [Issues](https://github.com/votre-utilisateur/partial-playground/issues).
 
-Please follow best practices and document your changes.
+Merci de respecter les bonnes pratiques de contribution et de documenter vos modifications.
 
-## License
+## Licence
 
-This plugin is released under the **MIT** License.
-The full text of the MIT License is available here: [MIT License](https://github.com/github/choosealicense.com/blob/gh-pages/_licenses/mit.txt)
+Ce plugin est distribué sous licence **MIT**.  
+Le texte complet de la licence MIT est disponible ici : [MIT License](https://github.com/github/choosealicense.com/blob/gh-pages/_licenses/mit.txt)
 
 ## Documentation
 
-This documentation was partly generated with the help of an AI.
-The French version of this README is available here: [README.fr.md](README.fr.md)
+Cette documentation a été générée en partie avec l'aide d'une intelligence artificielle.  
+La version anglaise de ce README est disponible ici : [README.md](README.md)
+
