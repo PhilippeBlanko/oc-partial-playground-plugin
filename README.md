@@ -285,22 +285,22 @@ preview_css_file: "assets/css/toggle-switch.css"
 preview_js_file: "assets/js/toggle-switch.js"
 ```
 
-More examples are available in the plugin's [examples](https://github.com/your-user/partial-playground/examples) folder.
+More examples are available in the plugin's [examples](https://github.com/PhilippeBlanko/oc-partial-playground-plugin/tree/main/examples) folder.
 
 ## Contributing
 
 Contributions are welcome!
 
 - Fork the project and create a branch for your improvements or fixes.
-- Submit a [Pull Request](https://github.com/votre-utilisateur/partial-playground/pulls) with a clear description of your changes.
-- Report bugs or issues via [Issues](https://github.com/votre-utilisateur/partial-playground/issues).
+- Submit a [Pull Request](https://github.com/PhilippeBlanko/oc-partial-playground-plugin/pulls) with a clear description of your changes.
+- Report bugs or issues via [Issues](https://github.com/PhilippeBlanko/oc-partial-playground-plugin/issues).
 
 Please follow best practices and document your changes.
 
 ## License
 
 This plugin is released under the **MIT** License.
-The full text of the MIT License is available here: [MIT License](https://github.com/github/choosealicense.com/blob/gh-pages/_licenses/mit.txt)
+The full text of the MIT License is available here: [MIT License](https://github.com/PhilippeBlanko/oc-partial-playground-plugin/blob/main/LICENCE)
 
 ## Documentation
 
