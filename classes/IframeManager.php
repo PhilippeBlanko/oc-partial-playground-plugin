@@ -1,4 +1,4 @@
-<?php namespace Ducharme\classes;
+<?php namespace Ducharme\PartialPlayground\Classes;
 
 use Cms\Classes\Theme;
 use Backend\Models\BrandSetting;

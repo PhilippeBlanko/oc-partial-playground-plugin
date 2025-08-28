@@ -1,14 +1,12 @@
-<?php namespace Ducharme\controllers;
+<?php namespace Ducharme\PartialPlayground\Controllers;
 
 use Backend\Classes\Controller;
 use Backend\Models\BrandSetting;
 use BackendMenu;
 use Config;
-use Ducharme\classes\PartialManager;
-use Ducharme\classes\PartialConfigManager;
-use Ducharme\classes\IframeManager;
-use function Ducharme\PartialPlayground\Controllers\get;
-use function Ducharme\PartialPlayground\Controllers\post;
+use Ducharme\PartialPlayground\Classes\PartialManager;
+use Ducharme\PartialPlayground\Classes\PartialConfigManager;
+use Ducharme\PartialPlayground\Classes\IframeManager;
 
 /**
  * Contrôleur principal du plugin Partial Playground

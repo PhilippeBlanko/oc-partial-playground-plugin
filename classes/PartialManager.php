@@ -1,10 +1,8 @@
-<?php namespace Ducharme\classes;
+<?php namespace Ducharme\PartialPlayground\Classes;
 
 use Cms\Classes\Theme;
 use File;
 use Lang;
-use function Ducharme\PartialPlayground\Classes\app;
-use function Ducharme\PartialPlayground\Classes\e;
 
 /**
  * Gère les partials (.htm) d’un dossier spécifique dans le thème actif

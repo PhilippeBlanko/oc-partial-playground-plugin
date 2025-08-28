@@ -1,7 +1,7 @@
-<?php namespace Ducharme;
+<?php namespace Ducharme\PartialPlayground;
 
-use Backend;
 use System\Classes\PluginBase;
+use Backend;
 
 class Plugin extends PluginBase
 {

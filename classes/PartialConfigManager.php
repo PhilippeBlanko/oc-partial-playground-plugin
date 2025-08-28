@@ -1,4 +1,4 @@
-<?php namespace Ducharme\classes;
+<?php namespace Ducharme\PartialPlayground\Classes;
 
 use Backend\Classes\Controller;
 use Backend\Widgets\Form;
